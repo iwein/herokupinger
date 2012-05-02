@@ -1,6 +1,6 @@
 from iron_worker import *
 
-payload = {'herokuping':{'hosts':  ['over-op-sepa.herokuapp.com','trigion.cvive.com','mimispeelgoed.herokuapp.com','young-leaf-7580.herokuapp.com']}}
+payload = {'herokuping':{'hosts':  ['over-op-sepa.herokuapp.com','mimispeelgoed.herokuapp.com','young-leaf-7580.herokuapp.com']}}
 
 worker = IronWorker(config='config.ini')
 
@@ -13,7 +13,7 @@ ret = worker.postCode(name=name, runFilename="herokuping_worker.py",
 print str(ret)
 
 ret = worker.postSchedule(name=name,  
-        delay=10, run_every=150, run_times=300000,
+        delay=10, run_every=900, run_times=300000,
         payload=payload)
 
 print "postTask returned:  %s" % ret
